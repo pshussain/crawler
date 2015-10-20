@@ -41,3 +41,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+crawler/target/
+crawler/.settings/
+crawler/.project
+crawler/.classpath
