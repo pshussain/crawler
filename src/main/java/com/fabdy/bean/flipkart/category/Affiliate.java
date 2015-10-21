@@ -8,4 +8,16 @@ public class Affiliate {
 	String name;
 	@JsonProperty("apiListings")
 	ApiListing apiListings;
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @return the apiListings
+	 */
+	public ApiListing getApiListings() {
+		return apiListings;
+	}
 }

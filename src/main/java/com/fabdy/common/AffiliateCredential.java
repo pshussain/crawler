@@ -14,5 +14,9 @@ public interface AffiliateCredential {
 	public String AFF_ID = AFF_PROP + "affiliate_id";
 	public String AFF_TOKEN = AFF_PROP + "token";
 	public String AFF_API_URL = AFF_PROP + "api_url";
+	public String DB_USERNAME = AFF_PROP + "username";
+	public String DB_PASSWORD = AFF_PROP + "password";
+	public String DB_DATABASE = AFF_PROP + "database";
+	public String DB_URL = AFF_PROP + "url";
 
 }
