@@ -49,6 +49,7 @@ public class FlipkartAffiliateService {
 	public void fetchCategory() throws Exception {
 		final String apiRes = HttpHandler.doGet(categoryApi, credential);
 		final Api api = parser.parseApi(apiRes);
+		for(String feedUrl : api.getApiGroups().getAffiliate().getApiListings())
 		System.out.println(api.getDescription());
 	}
 	
