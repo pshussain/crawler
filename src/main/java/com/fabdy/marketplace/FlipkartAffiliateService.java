@@ -8,10 +8,14 @@ import java.util.Map;
 import org.apache.commons.configuration.Configuration;
 
 import com.fabdy.bean.flipkart.category.Api;
+import com.fabdy.bean.flipkart.category.ApiDetail;
 import com.fabdy.common.AffiliateCredential;
+import com.fabdy.common.FlipkartCategory;
 import com.fabdy.db.ConnectionManager;
 import com.fabdy.http.HttpHandler;
 import com.fabdy.parser.FlipkartParser;
+
+import net.minidev.json.JSONObject;
 
 public class FlipkartAffiliateService {
 	
@@ -43,16 +47,33 @@ public class FlipkartAffiliateService {
 		
 		this.parser = new FlipkartParser();
 		this.productFeedUrls = new ArrayList<String>();
-		this.manager = ConnectionManager.getInstance(username, password, url, database);
+//		this.manager = ConnectionManager.getInstance(username, password, url, database);
 	}
 	
 	public void fetchCategory() throws Exception {
 		final String apiRes = HttpHandler.doGet(categoryApi, credential);
-		final Api api = parser.parseApi(apiRes);
-		for(String feedUrl : api.getApiGroups().getAffiliate().getApiListings())
-		System.out.println(api.getDescription());
+		final JSONObject resObj = parser.parseApi(apiRes);
+		final List<ApiDetail> apiList = getAllCategoryApis(resObj);
+		
 	}
 	
+	private List<ApiDetail> getAllCategoryApis(JSONObject resObj) {
+		final List<ApiDetail> apiDetails = new ArrayList<ApiDetail>();
+		final JSONObject apiGropups = (JSONObject) resObj.get("apiGroups");
+		final JSONObject affiliate = (JSONObject) apiGropups.get("affiliate");
+		final JSONObject apiListing = (JSONObject) affiliate.get("apiListings");
+		for(String category : FlipkartCategory.CATEGORY) {
+			final JSONObject categoryDetail = (JSONObject) apiListing.get(category);
+			final JSONObject availableVariants = (JSONObject) categoryDetail.get("availableVariants");
+			final JSONObject version = (JSONObject) availableVariants.get("v0.1.0");
+			final String resourceName = (String) version.get("resourceName");
+			final String api = (String) version.get("get");
+			final ApiDetail apiDetail = new ApiDetail(resourceName, api);
+			apiDetails.add(apiDetail);
+		}
+		return apiDetails;
+	}
+
 	public void fetchProducts() {
 		
 	}

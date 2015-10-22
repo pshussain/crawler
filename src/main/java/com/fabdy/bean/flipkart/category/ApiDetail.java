@@ -1,12 +1,23 @@
 package com.fabdy.bean.flipkart.category;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiDetail {
-	@JsonProperty("resourceName")
-	String resourceName;
-	@JsonProperty("get")
-	String get;
+	String category;
+	String url;
+	public ApiDetail(String category, String url) {
+		this.category = category;
+		this.url = url;
+	}
+	/**
+	 * @return the category
+	 */
+	public String getCategory() {
+		return category;
+	}
+	/**
+	 * @return the url
+	 */
+	public String getUrl() {
+		return url;
+	}
+	
 }
