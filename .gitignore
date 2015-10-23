@@ -42,8 +42,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-crawler/target/
-crawler/.settings/
-crawler/.project
-crawler/.classpath
-crawler/src/main/resources/conf/affiliate.properties
+arget/
+.settings/
+.project
+.classpath
+src/main/resources/conf/affiliate.properties
