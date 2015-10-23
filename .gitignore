@@ -46,4 +46,4 @@ target/
 .settings/
 .project
 .classpath
-src/main/resources/conf/affiliate.properties
+src/main/resources/conf/*
