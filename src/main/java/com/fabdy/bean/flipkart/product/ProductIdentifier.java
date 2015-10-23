@@ -7,4 +7,16 @@ public class ProductIdentifier {
 	String productId;
 	@JsonProperty("categoryPaths")
 	CategoryPaths categoryPaths;
+	/**
+	 * @return the productId
+	 */
+	public String getProductId() {
+		return productId;
+	}
+	/**
+	 * @return the categoryPaths
+	 */
+	public CategoryPaths getCategoryPaths() {
+		return categoryPaths;
+	}
 }

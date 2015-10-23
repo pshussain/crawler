@@ -4,7 +4,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.PropertiesConfiguration;
-import com.fabdy.marketplace.FlipkartAffiliateService;
+
+import com.fabdy.marketplace.flipkart.FlipkartAffiliateService;
 
 public class AffiliateService {
 	

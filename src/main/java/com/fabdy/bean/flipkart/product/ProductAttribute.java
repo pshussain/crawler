@@ -2,8 +2,10 @@ package com.fabdy.bean.flipkart.product;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonSerialize(include= JsonSerialize.Inclusion.ALWAYS) 
 public class ProductAttribute {
 	@JsonProperty("title")
 	String title;
@@ -121,7 +123,7 @@ public class ProductAttribute {
 	 * @return the colorVariants
 	 */
 	public List<String> getColorVariants() {
-		return colorVariants;
+		return (List<String>)colorVariants;
 	}
 	/**
 	 * @return the styleCode
@@ -160,7 +162,7 @@ public class ProductAttribute {
 	@JsonProperty("sizeVariants")
 	String sizeVariants;
 	@JsonProperty("colorVariants")
-	List<String> colorVariants;
+	Object colorVariants;
 	@JsonProperty("styleCode")
 	String styleCode;
 	@JsonProperty("offset")

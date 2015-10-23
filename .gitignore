@@ -46,3 +46,4 @@ crawler/target/
 crawler/.settings/
 crawler/.project
 crawler/.classpath
+crawler/src/main/resources/conf/affiliate.properties
