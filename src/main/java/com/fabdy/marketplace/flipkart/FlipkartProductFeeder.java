@@ -30,7 +30,7 @@ public class FlipkartProductFeeder implements Runnable {
 			if (apiRes != null) {
 				final ProductInfoList product = parser.parse(apiRes);
 				for(ProductDetail detail : product.getProductInfoList()) {
-//					System.out.println(detail.getProductBaseInfo().getProductAttribute().getTitle() +  " : " + detail.getProductBaseInfo().getProductIdentifier().getProductId() + " : "+ detail.getProductBaseInfo().getProductAttribute().getSellingPrice().getAmout());
+					System.out.println(detail.getProductBaseInfo().getProductAttribute().getTitle() +  " : " + detail.getProductBaseInfo().getProductIdentifier().getProductId() + " : "+ detail.getProductBaseInfo().getProductAttribute().getSellingPrice().getAmout());
 				}
 				
 			}

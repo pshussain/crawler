@@ -26,7 +26,6 @@ public class FlipkartAffiliateService {
 	private final String affiliateToken;
 	private final Map<String, String> credential;
 	private String affiliateId;
-	private List<String> productFeedUrls;
 	private ConnectionManager manager;
 	private String username;
 	private String password;
@@ -48,7 +47,6 @@ public class FlipkartAffiliateService {
 		this.password = config.getString(AffiliateCredential.DB_PASSWORD);
 		this.database = config.getString(AffiliateCredential.DB_DATABASE);
 		this.url = config.getString(AffiliateCredential.DB_URL);
-		this.productFeedUrls = new ArrayList<String>();
 		this.parser = new FlipkartParser();
 //		this.manager = ConnectionManager.getInstance(username, password, url, database);
 	}
